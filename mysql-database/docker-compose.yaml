@@ -1,0 +1,26 @@
+version: "3.0"
+services:
+  database-mysql:
+    image: mysql:8.0.29
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: b0d9d46363200aab47ed7cf0e210b6723fc171f7240e10534d24c72e092c2945
+      MYSQL_USER: db
+      MYSQL_PASSWORD: cbee80e1efc7f4999cfc8314e8f168b5e912379885c88a99
+      MYSQL_DATABASE: db
+    volumes:
+      - ./db-data:/var/lib/mysql
+    ports:
+      #- 3306:3306
+      - 0.0.0.0:3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=database-mysql
+      - PMA_USER=db
+      - PMA_PASSWORD=cbee80e1efc7f4999cfc8314e8f168b5e912379885c88a99
+      - PMA_ARBITRARY=1
