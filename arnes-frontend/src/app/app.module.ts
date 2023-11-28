@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     AllReservationsComponent,
   ],
   imports: [
+    NgxMaterialTimepickerModule,
     MatCardModule,
     MatNativeDateModule,
     MatDatepickerModule,

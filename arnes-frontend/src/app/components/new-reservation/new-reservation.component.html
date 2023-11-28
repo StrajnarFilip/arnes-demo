@@ -4,9 +4,39 @@
 </mat-form-field>
 <br />
 
-<mat-label>Dan rezervacije</mat-label>
 <mat-card>
+  <mat-card-header>
+    <mat-card-title>Dan rezervacije</mat-card-title>
+  </mat-card-header>
   <mat-calendar matInput [(selected)]="reservationDay"></mat-calendar>
 </mat-card>
+<br />
+
+<ngx-material-timepicker [theme]="darkTheme" #from></ngx-material-timepicker>
+<ngx-material-timepicker [theme]="darkTheme" #to></ngx-material-timepicker>
+
+<mat-form-field>
+  <mat-label>Čas od</mat-label>
+  <input
+    matInput
+    [(ngModel)]="timeFrom"
+    type="text"
+    [ngxTimepicker]="from"
+    [format]="24"
+  />
+</mat-form-field>
+<br />
+<mat-form-field>
+  <mat-label>Čas do</mat-label>
+  <input
+    matInput
+    [(ngModel)]="timeTo"
+    type="text"
+    [ngxTimepicker]="to"
+    [format]="24"
+    [min]="this.reservedFrom"
+    (mouseover)="update()"
+  />
+</mat-form-field>
 <br />
 <button mat-raised-button (click)="add()">Rezerviraj</button>
