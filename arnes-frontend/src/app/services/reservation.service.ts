@@ -28,4 +28,8 @@ export class ReservationService {
   allReservations(): ReservationEntity[] {
     return this.reservations;
   }
+
+  addReservation(reservation: ReservationEntity) {
+    this.reservations.push(reservation);
+  }
 }

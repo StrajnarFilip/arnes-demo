@@ -1,1 +1,12 @@
-<p>new-reservation works!</p>
+<mat-form-field>
+  <mat-label>Ime sobe</mat-label>
+  <input type="text" matInput [(ngModel)]="roomName" />
+</mat-form-field>
+<br />
+
+<mat-label>Dan rezervacije</mat-label>
+<mat-card>
+  <mat-calendar matInput [(selected)]="reservationDay"></mat-calendar>
+</mat-card>
+<br />
+<button mat-raised-button (click)="add()">Rezerviraj</button>
