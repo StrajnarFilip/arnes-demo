@@ -10,6 +10,7 @@ import { AllReservationsComponent } from './components/all-reservations/all-rese
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     AllReservationsComponent,
   ],
   imports: [
+    MatTableModule,
     MatToolbarModule,
     MatButtonModule,
     BrowserModule,
