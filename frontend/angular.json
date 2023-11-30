@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "arnes-frontend:build:production"
+              "buildTarget": "arnes-frontend:build:production"
             },
             "development": {
-              "browserTarget": "arnes-frontend:build:development"
+              "buildTarget": "arnes-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "arnes-frontend:build"
+            "buildTarget": "arnes-frontend:build"
           }
         },
         "test": {
