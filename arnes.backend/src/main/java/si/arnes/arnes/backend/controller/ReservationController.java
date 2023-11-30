@@ -7,6 +7,7 @@ import si.arnes.arnes.backend.entity.Reservation;
 import si.arnes.arnes.backend.service.ReservationService;
 
 @RestController
+@CrossOrigin
 public class ReservationController {
   @Autowired private ReservationService reservationService;
 
