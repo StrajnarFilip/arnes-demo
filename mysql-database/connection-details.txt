@@ -1,4 +1,4 @@
-Database: db
+Database: reservations
 Username: db
 db's password: cbee80e1efc7f4999cfc8314e8f168b5e912379885c88a99
 root's password: b0d9d46363200aab47ed7cf0e210b6723fc171f7240e10534d24c72e092c2945
