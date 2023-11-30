@@ -9,32 +9,11 @@ import { Observable } from 'rxjs';
 export class ReservationService {
   private readonly BASE_URL = 'http://localhost:8080';
 
-  private reservations: ReservationEntity[] = [
-    {
-      id: 1,
-      roomName: 'Alfa',
-      reserveFrom: '2023-11-28T14:48:00.000Z',
-      reserveTo: '2023-11-28T15:48:00.000Z',
-    },
-    {
-      id: 2,
-      roomName: 'Beta',
-      reserveFrom: '2023-11-28T14:48:00.000Z',
-      reserveTo: '2023-11-28T15:48:00.000Z',
-    },
-    {
-      id: 3,
-      roomName: 'Gamma',
-      reserveFrom: '2023-11-28T14:48:00.000Z',
-      reserveTo: '2023-11-28T15:48:00.000Z',
-    },
-  ];
-
   constructor(private httpClient: HttpClient) {}
 
   allReservations(): Observable<ReservationEntity[]> {
     return this.httpClient.get<ReservationEntity[]>(
-      `${this.BASE_URL}/reservations`
+      `${this.BASE_URL}/reservations`,
     );
   }
 
@@ -45,6 +24,8 @@ export class ReservationService {
   }
 
   removeReservation(id: number) {
-    return this.httpClient.delete(`${this.BASE_URL}/reservation/${id}`, {responseType: 'text'});
+    return this.httpClient.delete(`${this.BASE_URL}/reservation/${id}`, {
+      responseType: 'text',
+    });
   }
 }
