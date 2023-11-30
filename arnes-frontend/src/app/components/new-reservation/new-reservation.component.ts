@@ -1,4 +1,5 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { DateTime } from 'luxon';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import { ReservationService } from 'src/app/services/reservation.service';
@@ -30,7 +31,10 @@ export class NewReservationComponent implements OnChanges {
       clockFaceTimeInactiveColor: '#fff',
     },
   };
-  constructor(private reservationService: ReservationService) {}
+  constructor(
+    private reservationService: ReservationService,
+    private router: Router
+  ) {}
 
   ngOnChanges(_: SimpleChanges): void {
     this.update();
@@ -67,8 +71,8 @@ export class NewReservationComponent implements OnChanges {
   add() {
     this.update();
 
-    const from = this.reservedFrom.toISO();
-    const to = this.reservedTo.toISO();
+    const from = this.reservedFrom.toISO({ suppressMilliseconds: true });
+    const to = this.reservedTo.toISO({ suppressMilliseconds: true });
 
     if (!from || !to) {
       return;
@@ -79,7 +83,13 @@ export class NewReservationComponent implements OnChanges {
       reserveFrom: from,
       reserveTo: to,
     };
-    console.log(this.reservationDay);
-    this.reservationService.addReservation(reservation);
+
+    this.reservationService
+      .addReservation(reservation)
+      .subscribe((response) => {
+        if (response.ok) {
+          this.router.navigate(['/']);
+        }
+      });
   }
 }

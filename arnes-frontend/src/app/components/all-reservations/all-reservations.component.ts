@@ -13,10 +13,18 @@ export class AllReservationsComponent implements OnInit {
 
   constructor(private reservationService: ReservationService) {}
   ngOnInit(): void {
-    this.reservations = this.reservationService.allReservations();
+    this.refreshReservations();
+  }
+
+  refreshReservations() {
+    this.reservationService
+      .allReservations()
+      .subscribe((r) => (this.reservations = r));
   }
 
   delete(id: number) {
-    this.reservationService.removeReservation(id);
+    this.reservationService.removeReservation(id).subscribe((_) => {
+      this.refreshReservations();
+    });
   }
 }
