@@ -2,6 +2,8 @@ package si.arnes.arnes.backend.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import si.arnes.arnes.backend.entity.Reservation;
 import si.arnes.arnes.backend.service.ReservationService;
@@ -17,8 +19,12 @@ public class ReservationController {
   }
 
   @PostMapping("/reservation")
-  public Long addReservation(@RequestBody Reservation reservation) {
-    return this.reservationService.addReservation(reservation);
+  public ResponseEntity<Long> addReservation(@RequestBody Reservation reservation) {
+    Long reservationId = this.reservationService.addReservation(reservation);
+    if (reservationId < 0) {
+      return new ResponseEntity<Long>(HttpStatusCode.valueOf(400));
+    }
+    return new ResponseEntity<Long>(reservationId, HttpStatusCode.valueOf(200));
   }
 
   @DeleteMapping("/reservation/{id}")
