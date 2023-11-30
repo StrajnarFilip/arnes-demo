@@ -33,7 +33,7 @@ export class NewReservationComponent implements OnChanges {
   };
   constructor(
     private reservationService: ReservationService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnChanges(_: SimpleChanges): void {
