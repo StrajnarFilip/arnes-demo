@@ -16,7 +16,7 @@ export class AllReservationsComponent implements OnInit {
     this.refreshReservations();
   }
 
-  refreshReservations() {
+  private refreshReservations() {
     this.reservationService
       .allReservations()
       .subscribe((r) => (this.reservations = r));
