@@ -13,14 +13,3 @@ services:
     ports:
       #- 3306:3306
       - 0.0.0.0:3306:3306
-
-  phpmyadmin:
-    image: phpmyadmin
-    restart: always
-    ports:
-      - 8080:80
-    environment:
-      - PMA_HOST=database-mysql
-      - PMA_USER=db
-      - PMA_PASSWORD=cbee80e1efc7f4999cfc8314e8f168b5e912379885c88a99
-      - PMA_ARBITRARY=1
