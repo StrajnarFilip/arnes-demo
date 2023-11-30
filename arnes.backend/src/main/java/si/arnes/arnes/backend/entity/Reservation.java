@@ -18,11 +18,11 @@ public class Reservation {
   @JsonProperty("roomName")
   private String room;
 
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
   @JsonProperty("reserveFrom")
   private OffsetDateTime reservedFrom;
 
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
   @JsonProperty("reserveTo")
   private OffsetDateTime reservedTo;
 
