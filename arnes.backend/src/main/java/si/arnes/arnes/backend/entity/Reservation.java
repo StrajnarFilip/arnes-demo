@@ -41,4 +41,13 @@ public class Reservation {
   public OffsetDateTime getReservedTo() {
     return reservedTo;
   }
+
+  public Reservation(Long id, String room, OffsetDateTime reservedFrom, OffsetDateTime reservedTo) {
+    this.id = id;
+    this.room = room;
+    this.reservedFrom = reservedFrom;
+    this.reservedTo = reservedTo;
+  }
+
+  public Reservation() {}
 }
